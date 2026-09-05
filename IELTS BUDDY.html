@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Buddy - Complete Guide to All 4 Modules & Question Types</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background: #f5f7fa;
+        }
+        a { text-decoration: none; color: inherit; }
+        ul, ol { padding-left: 1.2rem; }
+
+        :root {
+            --blue: #0056b3;
+            --blue-dark: #003d82;
+            --orange: #ff9800;
+            --green: #28a745;
+            --red: #dc3545;
+            --purple: #6f42c1;
+            --teal: #20c997;
+            --dark: #2c3e50;
+            --gray: #6c757d;
+            --light: #f4f7f6;
+            --white: #ffffff;
+        }
+
+        /* HEADER */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            position: sticky; top: 0; z-index: 1000;
+        }
+        .nav-container {
+            max-width: 1300px; margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap;
+        }
+        .logo { font-size: 1.8rem; font-weight: 800; color: var(--blue); }
+        .logo span { color: var(--orange); }
+        .nav-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+        .nav-links a { font-weight: 600; color: var(--dark); transition: color 0.3s; font-size: 0.95rem; }
+        .nav-links a:hover { color: var(--blue); }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+            color: var(--white); padding: 5rem 2rem; text-align: center;
+        }
+        .hero h1 { font-size: 2.8rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.2rem; max-width: 800px; margin: 0 auto 2rem; opacity: 0.9; }
+        .btn {
+            display: inline-block; padding: 0.9rem 2.2rem; border-radius: 50px;
+            font-weight: 700; font-size: 1.1rem; transition: all 0.3s; cursor: pointer; border: none;
+        }
+        .btn-primary { background: var(--orange); color: var(--white); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(255,152,0,0.4); }
+
+        /* OVERVIEW STATS */
+        .stats-bar {
+            background: var(--white); padding: 2.5rem 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .stats-grid {
+            max-width: 1200px; margin: 0 auto;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;
+            text-align: center;
+        }
+        .stat-item h3 { font-size: 2.2rem; color: var(--blue); }
+        .stat-item p { color: var(--gray); font-weight: 600; }
+
+        /* SECTIONS */
+        section { padding: 4rem 2rem; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .section-title {
+            text-align: center; font-size: 2.4rem; color: var(--dark); margin-bottom: 0.5rem;
+        }
+        .section-subtitle {
+            text-align: center; color: var(--gray); font-size: 1.1rem;
+            max-width: 800px; margin: 0 auto 3rem;
+        }
+
+        /* OVERVIEW CARDS */
+        .overview-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem;
+        }
+        .overview-card {
+            background: var(--white); border-radius: 16px; padding: 2.5rem 2rem;
+            text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            border-top: 5px solid var(--blue); transition: transform 0.3s;
+        }
+        .overview-card:hover { transform: translateY(-8px); }
+        .overview-card:nth-child(2) { border-top-color: var(--green); }
+        .overview-card:nth-child(3) { border-top-color: var(--purple); }
+        .overview-card:nth-child(4) { border-top-color: var(--orange); }
+        .overview-card .icon { font-size: 3rem; margin-bottom: 1rem; }
+        .overview-card h3 { font-size: 1.5rem; color: var(--dark); margin-bottom: 0.5rem; }
+        .overview-card .time { font-weight: 700; color: var(--blue); margin-bottom: 0.5rem; }
+        .overview-card p { color: var(--gray); font-size: 0.95rem; }
+
+        /* MODULE DEEP-DIVE */
+        .module-section { background: var(--white); }
+        .module-section:nth-child(even) { background: var(--light); }
+        .module-header {
+            display: flex; align-items: center; gap: 1.5rem;
+            margin-bottom: 2rem; flex-wrap: wrap;
+        }
+        .module-header .big-icon { font-size: 3.5rem; }
+        .module-header h2 { font-size: 2rem; color: var(--dark); }
+        .module-header .badge {
+            background: var(--blue); color: var(--white);
+            padding: 0.3rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 700;
+        }
+        .module-header .badge.green { background: var(--green); }
+        .module-header .badge.purple { background: var(--purple); }
+        .module-header .badge.orange { background: var(--orange); }
+        .module-desc { color: var(--gray); font-size: 1.05rem; margin-bottom: 2rem; max-width: 900px; }
+
+        /* PARTS TABLE */
+        .parts-table {
+            width: 100%; border-collapse: collapse; margin: 2rem 0;
+            background: var(--white); border-radius: 12px; overflow: hidden;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+        }
+        .parts-table thead { background: var(--blue); color: var(--white); }
+        .parts-table th, .parts-table td {
+            padding: 1rem 1.2rem; text-align: left; border-bottom: 1px solid #eee;
+        }
+        .parts-table th { font-weight: 700; font-size: 0.95rem; }
+        .parts-table tbody tr:hover { background: #f0f6ff; }
+        .parts-table .part-label {
+            font-weight: 800; color: var(--blue); white-space: nowrap;
+        }
+
+        /* QUESTION TYPE CARDS */
+        .qtype-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .qtype-card {
+            background: var(--white); border-radius: 12px; padding: 1.8rem;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--blue); transition: transform 0.3s;
+        }
+        .qtype-card:hover { transform: translateX(5px); }
+        .qtype-card.green-border { border-left-color: var(--green); }
+        .qtype-card.purple-border { border-left-color: var(--purple); }
+        .qtype-card.orange-border { border-left-color: var(--orange); }
+        .qtype-card.teal-border { border-left-color: var(--teal); }
+        .qtype-card.red-border { border-left-color: var(--red); }
+        .qtype-card h4 {
+            font-size: 1.15rem; color: var(--dark); margin-bottom: 0.5rem;
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+        .qtype-card h4 .num {
+            background: var(--blue); color: var(--white);
+            width: 28px; height: 28px; border-radius: 50%;
+            display: inline-flex; align-items: center; justify-content: center;
+            font-size: 0.8rem; flex-shrink: 0;
+        }
+        .qtype-card p { color: var(--gray); font-size: 0.95rem; }
+        .qtype-card .tip {
+            margin-top: 0.8rem; padding: 0.6rem 1rem;
+            background: #fff8e1; border-radius: 8px;
+            font-size: 0.88rem; color: #7a6200;
+        }
+        .qtype-card .tip strong { color: #e65100; }
+
+        /* WRITING TASK BOXES */
+        .task-box {
+            background: var(--light); border-radius: 14px; padding: 2rem;
+            margin-bottom: 1.5rem; border: 2px solid #e0e0e0;
+        }
+        .task-box h4 { font-size: 1.3rem; color: var(--purple); margin-bottom: 0.5rem; }
+        .task-box .meta {
+            display: flex; gap: 1.5rem; margin-bottom: 1rem; flex-wrap: wrap;
+        }
+        .task-box .meta span {
+            background: var(--white); padding: 0.3rem 0.8rem;
+            border-radius: 8px; font-weight: 700; font-size: 0.85rem; color: var(--dark);
+        }
+        .task-box ul { color: var(--gray); }
+        .task-box ul li { margin-bottom: 0.4rem; }
+
+        /* SPEAKING PARTS */
+        .speak-timeline { position: relative; padding-left: 3rem; margin: 2rem 0; }
+        .speak-timeline::before {
+            content: ''; position: absolute; left: 14px; top: 0; bottom: 0;
+            width: 3px; background: var(--orange);
+        }
+        .speak-part {
+            position: relative; margin-bottom: 2.5rem;
+            background: var(--white); padding: 1.8rem; border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+        }
+        .speak-part::before {
+            content: ''; position: absolute; left: -2.35rem; top: 1.8rem;
+            width: 16px; height: 16px; background: var(--orange);
+            border-radius: 50%; border: 3px solid var(--white);
+        }
+        .speak-part h4 { color: var(--orange); font-size: 1.2rem; margin-bottom: 0.3rem; }
+        .speak-part .duration { font-weight: 700; color: var(--dark); font-size: 0.9rem; margin-bottom: 0.5rem; }
+        .speak-part p, .speak-part ul { color: var(--gray); }
+        .speak-part ul li { margin-bottom: 0.3rem; }
+
+        /* ACADEMIC vs GENERAL */
+        .compare-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2rem 0;
+        }
+        .compare-box {
+            background: var(--white); border-radius: 14px; padding: 2rem;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+        }
+        .compare-box h4 { font-size: 1.3rem; margin-bottom: 1rem; }
+        .compare-box.academic h4 { color: var(--blue); }
+        .compare-box.general h4 { color: var(--green); }
+        .compare-box ul li { margin-bottom: 0.5rem; color: var(--gray); }
+
+        /* FOOTER */
+        footer {
+            background: var(--dark); color: var(--white);
+            text-align: center; padding: 3rem 2rem;
+        }
+        footer p { opacity: 0.6; margin-top: 1rem; }
+        .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .footer-links a:hover { color: var(--orange); }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .nav-links { display: none; }
+            .compare-grid { grid-template-columns: 1fr; }
+            .qtype-grid { grid-template-columns: 1fr; }
+            .parts-table { font-size: 0.85rem; }
+            .parts-table th, .parts-table td { padding: 0.7rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="nav-container">
+        <div class="logo">IELTS<span>Buddy</span></div>
+        <nav class="nav-links">
+            <a href="#overview">Overview</a>
+            <a href="#listening">Listening</a>
+            <a href="#reading">Reading</a>
+            <a href="#writing">Writing</a>
+            <a href="#speaking">Speaking</a>
+        </nav>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>The Complete IELTS Guide</h1>
+    <p>Everything you need to know about all <strong>4 modules</strong>, every <strong>question type</strong>, and proven strategies to achieve your target band score. Your journey to Band 7+ starts here.</p>
+    <a href="#overview" class="btn btn-primary">Explore All Modules ↓</a>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+    <div class="stats-grid">
+        <div class="stat-item"><h3>4</h3><p>Test Modules</p></div>
+        <div class="stat-item"><h3>2h 45m</h3><p>Total Test Time</p></div>
+        <div class="stat-item"><h3>0–9</h3><p>Band Score Range</p></div>
+        <div class="stat-item"><h3>140+</h3><p>Countries Accept IELTS</p></div>
+    </div>
+</div>
+
+<!-- ==================== OVERVIEW ==================== -->
+<section id="overview">
+    <div class="container">
+        <h2 class="section-title">The 4 IELTS Modules at a Glance</h2>
+        <p class="section-subtitle">The IELTS exam tests your English ability across four core skills. Listening and Speaking are the same for all candidates, while Reading and Writing differ between Academic and General Training.</p>
+
+        <div class="overview-grid">
+            <div class="overview-card">
+                <div class="icon">🎧</div>
+                <h3>Listening</h3>
+                <div class="time">30 min + 10 min transfer</div>
+                <p>4 Parts · 40 Questions · Same for Academic & General Training. You hear each recording <strong>only once</strong>.</p>
+            </div>
+            <div class="overview-card">
+                <div class="icon">📖</div>
+                <h3>Reading</h3>
+                <div class="time">60 minutes</div>
+                <p>3 Sections · 40 Questions · Texts differ for Academic (long academic passages) vs. General (everyday & workplace texts).</p>
+            </div>
+            <div class="overview-card">
+                <div class="icon">✍️</div>
+                <h3>Writing</h3>
+                <div class="time">60 minutes</div>
+                <p>2 Tasks · Task 1 differs (graph vs. letter). Task 2 is an essay for both versions. Task 2 is worth <strong>twice</strong> the marks of Task 1.</p>
+            </div>
+            <div class="overview-card">
+                <div class="icon">🗣️</div>
+                <h3>Speaking</h3>
+                <div class="time">11–14 minutes</div>
+                <p>3 Parts · Face-to-face interview with a certified examiner. Same for Academic & General Training. May be on a different day.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== LISTENING ==================== -->
+<section class="module-section" id="listening">
+    <div class="container">
+        <div class="module-header">
+            <div class="big-icon">🎧</div>
+            <div>
+                <h2>Module 1: Listening</h2>
+                <span class="badge">30 min + 10 min · 40 Questions · 4 Parts</span>
+            </div>
+        </div>
+        <p class="module-desc">
+            The Listening test is the <strong>same for both Academic and General Training</strong>. You will listen to <strong>four recordings</strong> of native English speakers and answer 10 questions per recording. The recordings are played <strong>only once</strong>, so concentration is critical. The difficulty increases progressively from Part 1 (easiest) to Part 4 (hardest). You get 10 extra minutes at the end to transfer your answers to the answer sheet (paper-based test only).
+        </p>
+
+        <h3 style="color:var(--dark); margin-bottom:1rem;">📋 The 4 Parts of Listening in Detail</h3>
+
+        <table class="parts-table">
+            <thead>
+                <tr>
+                    <th>Part</th>
+                    <th>Format</th>
+                    <th>Context</th>
+                    <th>Example Scenario</th>
+                    <th>Difficulty</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="part-label">Part 1</td>
+                    <td><strong>Conversation</strong> between <strong>2 people</strong></td>
+                    <td>Everyday social context</td>
+                    <td>Booking a hotel room, enquiring about a gym membership, renting an apartment, opening a bank account</td>
+                    <td>⭐ Easiest</td>
+                </tr>
+                <tr>
+                    <td class="part-label">Part 2</td>
+                    <td><strong>Monologue</strong> (1 speaker)</td>
+                    <td>Everyday social context</td>
+                    <td>A tour guide describing a museum, a radio announcement about local events, a manager explaining workplace facilities</td>
+                    <td>⭐⭐ Easy-Medium</td>
+                </tr>
+                <tr>
+                    <td class="part-label">Part 3</td>
+                    <td><strong>Conversation</strong> between <strong>up to 4 people</strong></td>
+                    <td>Educational / training context</td>
+                    <td>A university tutor discussing an assignment with 2–3 students, a group planning a research project</td>
+                    <td>⭐⭐⭐ Medium-Hard</td>
+                </tr>
+                <tr>
+                    <td class="part-label">Part 4</td>
+                    <td><strong>Monologue</strong> (1 speaker)</td>
+                    <td>Academic subject</td>
+                    <td>A university lecture on marine biology, a presentation on urban planning, a talk about historical architecture</td>
+                    <td>⭐⭐⭐⭐ Hardest</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 style="color:var(--dark); margin: 2.5rem 0 0.5rem;">❓ All Listening Question Types (6 Types)</h3>
+        <p style="color:var(--gray); margin-bottom:1rem;">These question types can appear in <strong>any</strong> of the 4 parts. You must be prepared for all of them.</p>
+
+        <div class="qtype-grid">
+            <div class="qtype-card">
+                <h4><span class="num">1</span> Multiple Choice</h4>
+                <p>Choose the correct answer from <strong>3 options (A, B, C)</strong>. Sometimes you may need to pick <strong>2 answers from 5 options</strong> or <strong>3 answers from 7 options</strong>. Tests your ability to understand detailed information and opinions.</p>
+                <div class="tip"><strong>💡 Tip:</strong> Watch out for distractors — the speaker may mention ALL options but only one is correct. Listen for words like "however," "actually," and "but."</div>
+            </div>
+            <div class="qtype-card green-border">
+                <h4><span class="num" style="background:var(--green)">2</span> Matching</h4>
+                <p>Match a list of items (e.g., people, places, events) from the recording to a set of options on the question paper. Tests your ability to follow a conversation and identify relationships between facts.</p>
+                <div class="tip"><strong>💡 Tip:</strong> Read all options before the audio starts. The speakers often paraphrase, so listen for <strong>synonyms</strong>, not exact words.</div>
+            </div>
+            <div class="qtype-card purple-border">
+                <h4><span class="num" style="background:var(--purple)">3</span> Plan / Map / Diagram Labelling</h4>
+                <p>Complete labels on a <strong>plan</strong> (e.g., a building), a <strong>map</strong> (e.g., a town), or a <strong>diagram</strong> (e.g., a piece of equipment). You choose answers from a list or write directly on the visual.</p>
+                <div class="tip"><strong>💡 Tip:</strong> Learn directional language: "to the left of," "opposite," "adjacent to," "in the top-right corner," "just past the bridge."</div>
+            </div>
+            <div class="qtype-card orange-border">
+                <h4><span class="num" style="background:var(--orange)">4</span> Form / Note / Table / Flow-chart / Summary Completion</h4>
+                <p>Fill in the gaps in an outline of part or all of the listening text. The outline may be a <strong>form</strong> (e.g., application form), <strong>notes</strong>, a <strong>table</strong>, a <strong>flow-chart</strong>, or a <strong>summary</strong>. You write <strong>1–3 words and/or a number</strong>.</p>
+                <div class="tip"><strong>💡 Tip:</strong> Pay close attention to the word limit! If it says "NO MORE THAN TWO WORDS," writing three words = wrong answer, even if the information is correct.</div>
+            </div>
+            <div class="qtype-card teal-border">
+                <h4><span class="num" style="background:var(--teal)">5</span> Sentence Completion</h4>
+                <p>Fill in a gap in a sentence using information from the recording. You must write the exact words you hear. The word limit is specified (e.g., "NO MORE THAN THREE WORDS AND/OR A NUMBER").</p>
+                <div class="tip"><strong>💡 Tip:</strong> The answer is always in the <strong>same order</strong> as the questions. Use the words before and after the gap to predict the type of answer (noun, number, adjective).</div>
+            </div>
+            <div class="qtype-card red-border">
+                <h4><span class="num" style="background:var(--red)">6</span> Short Answer Questions</h4>
+                <p>Read a question and write a short answer using information from the recording. Usually requires <strong>1–3 words and/or a number</strong>. Questions often begin with "What," "Where," "When," "How many," or "Who."</p>
+                <div class="tip"><strong>💡 Tip:</strong> Spelling counts! If you misspell the word, you lose the mark. Practice spelling common IELTS vocabulary (days, months, addresses, academic terms).</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== READING ==================== -->
+<section class="module-section" id="reading">
+    <div class="container">
+        <div class="module-header">
+            <div class="big-icon">📖</div>
+            <div>
+                <h2>Module 2: Reading</h2>
+                <span class="badge green">60 min · 40 Questions · 3 Sections</span>
+            </div>
+        </div>
+        <p class="module-desc">
+            The Reading test has <strong>3 sections</strong> with a total of <strong>40 questions</strong>. You have <strong>60 minutes</strong> (no extra transfer time — you must write answers directly on the answer sheet). The texts and question difficulty increase from Section 1 to Section 3. The content differs between Academic and General Training.
+        </p>
+
+        <div class="compare-grid">
+            <div class="compare-box academic">
+                <h4>📘 Academic Reading</h4>
+                <ul>
+                    <li><strong>3 long texts</strong> (2,150–2,750 words total)</li>
+                    <li>Topics: science, history, sociology, technology, environment, etc.</li>
+                    <li>Texts taken from books, journals, magazines, and newspapers</li>
+                    <li>At least one text contains <strong>logical argument</strong></li>
+                    <li>May include <strong>diagrams, graphs, or illustrations</strong></li>
+                    <li>Designed for candidates applying to <strong>university</strong></li>
+                </ul>
+            </div>
+            <div class="compare-box general">
+                <h4>📗 General Training Reading</h4>
+                <ul>
+                    <li><strong>Section 1:</strong> 2–3 short factual texts (e.g., timetables, advertisements, notices)</li>
+                    <li><strong>Section 2:</strong> 2 short work-related texts (e.g., job descriptions, staff policies, contracts)</li>
+                    <li><strong>Section 3:</strong> 1 longer, more complex text on a general interest topic</li>
+                    <li>Texts taken from everyday English-speaking environments</li>
+                    <li>Designed for candidates applying for <strong>immigration or work</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <h3 style="color:var(--dark); margin: 2rem 0 0.5rem;">❓ All Reading Question Types (11 Types)</h3>
+        <p style="color:var(--gray); margin-bottom:1rem;">The Reading module has the <strong>most question types</strong> of any IELTS module. You must master all 11.</p>
+
+        <div class="qtype-grid">
+            <div class="qtype-card green-border">
+                <h4><span class="num" style="background:var(--green)">1</span> Multiple Choice</h4>
+                <p>Choose the best answer from <strong>4 options (A–D)</strong>. May also be a "choose 2 from 5" or "choose 3 from 7" format. Tests detailed understanding and ability to identify the writer's main point.</p>
+                <div class="tip"><strong>💡 Tip:</strong> Eliminate obviously wrong answers first. Look for <strong>paraphrasing</strong> — the correct answer will use different words than the text.</div>
+            </div>
+            <div class="qtype-card">
+                <h4><span class="num">2</span> True / False / Not Given</h4>
+                <p>Decide if statements agree with the <strong>factual information</strong> in the text. <strong>True</strong> = agrees, <strong>False</strong> = contradicts, <strong>Not Given</strong> = no information provided. This is one of the <strong>trickiest</strong> question types.</p>
+                <div class="tip"><strong>💡 Tip:</strong> "False" means the text says the <strong>opposite</strong>. "Not Given" means the text <strong>doesn't mention it at all</strong>. Don't use your own knowledge!</div>
+            </div>
+            <div class="qtype-card purple-border">
+                <h4><span class="num" style="background:var(--purple)">3</span> Yes / No / Not Given</h4>
+                <p>Similar to True/False/Not Given, but tests the <strong>writer's views or claims</strong> (opinions) rather than facts. <strong>Yes</strong> = agrees with the writer, <strong>No</strong> = contradicts the writer, <strong>Not Given</strong> = the writer doesn't express a view.</p>
+                <div class="tip"><strong>💡 Tip:</strong> Focus on the writer's <strong>attitude and opinion words</strong>: "believes," "argues," "suggests," "claims." Don't confuse facts with opinions.</div>
+            </div>
+            <div class="qtype-card orange-border">
+                <h4><span class="num" style="background:var(--orange)">4</span> Matching Information</h4>
+                <p>Find the specific paragraph (A, B, C, D…) that contains certain information (e.g., "a comparison," "a reason," "an example," "a prediction"). The instruction says: <em>"Which paragraph contains the following information?"</em></p>
+                <div class="tip"><strong>💡 Tip:</strong> Do this question <strong>last</strong> for the passage. By then, you'll be familiar with the content of each paragraph. Note: some paragraphs may be used more than once.</div>
+            </div>
+            <div class="qtype-card teal-border">
+                <h4><span class="num" style="background:var(--teal)">5</span> Matching Headings</h4>
+                <p>Match a list of <strong>headings</strong> (i–x) to the correct paragraphs or sections of the text. There are always <strong>more headings than paragraphs</strong>, so some headings are distractors. Tests your ability to identify the <strong>main idea</strong>.</p>
+                <div class="tip"><strong>💡 Tip:</strong> Read the <strong>first and last sentence</strong> of each paragraph to find the main idea. Don't match based on a single keyword — look for the overall meaning.</div>
+            </div>
+            <div class="qtype-card red-border">
+                <h4><span class="num" style="background:var(--red)">6</span> Matching Features</h4>
+                <p>Match a set of statements or pieces of information to a list of options (e.g., match discoveries to scientists, match events to time periods, match characteristics to categories).</p>
+                <div class="tip"><strong>💡 Tip:</strong> Scan the text for the <strong>names/dates/categories</strong> in the option list first, then read around them to find the matching statement.</div>
+            </div>
+            <div class="qtype-card">
+                <h4><span class="num">7</span> Matching Sentence Endings</h4>
+                <p>You are given the <strong>first half</strong> of a sentence and must choose the correct <strong>ending</strong> from a list of options. Tests your understanding of the meaning and grammar of the sentence within the text.</p>
+                <div class="tip"><strong>💡 Tip:</strong> Check that the completed sentence is <strong>grammatically correct</strong>. This can help you eliminate wrong endings even before checking the text.</div>
+            </div>
+            <div class="qtype-card green-border">
+                <h4><span class="num" style="background:var(--green)">8</span> Sentence Completion</h4>
+                <p>Complete sentences with words taken <strong>directly from the text</strong>. A word limit is given (e.g., "NO MORE THAN TWO WORDS from the passage"). Tests your ability to locate specific details.</p>
+                <div class="tip"><strong>💡 Tip:</strong> The answers appear in the <strong>same order</strong> as the questions in the text. Use keywords from the incomplete sentence to scan for the answer location.</div>
+            </div>
+            <div class="qtype-card purple-border">
+                <h4><span class="num" style="background:var(--purple)">9</span> Summary / Note / Table / Flow-chart Completion</h4>
+                <p>Complete a summary of part of the text. You may need to choose words from a <strong>box of options</strong> or select words <strong>directly from the passage</strong>. The summary may use synonyms and paraphrasing.</p>
+                <div class="tip"><strong>💡 Tip:</strong> Identify the <strong>part of the passage</strong> the summary refers to first. Then match the meaning, not just keywords. Grammar clues (e.g., "a/an/the") help narrow choices.</div>
+            </div>
+            <div class="qtype-card orange-border">
+                <h4><span class="num" style="background:var(--orange)">10</span> Diagram Label Completion</h4>
+                <p>Label a diagram based on information in the text. The diagram could be a machine, a natural process, a building, or a biological structure. Write the correct words from the passage.</p>
+                <div class="tip"><strong>💡 Tip:</strong> Look for the <strong>description of the process or object</strong> in the text. The labels usually follow the order of the description.</div>
+            </div>
+            <div class="qtype-card teal-border">
+                <h4><span class="num" style="background:var(--teal)">11</span> Short Answer Questions</h4>
+                <p>Answer questions about factual details in the text using words <strong>taken directly from the passage</strong>. A word limit is specified (e.g., "NO MORE THAN THREE WORDS").</p>
+                <div class="tip"><strong>💡 Tip:</strong> Pay attention to question words: <strong>"What"</strong> = thing, <strong>"Where"</strong> = place, <strong>"When"</strong> = time, <strong>"How many"</strong> = number. This tells you what type of answer to look for.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== WRITING ==================== -->
+<section class="module-section" id="writing">
+    <div class="container">
+        <div class="module-header">
+            <div class="big-icon">✍️</div>
+            <div>
+                <h2>Module 3: Writing</h2>
+                <span class="badge purple">60 min · 2 Tasks · Min 150 + 250 words</span>
+            </div>
+        </div>
+        <p class="module-desc">
+            The Writing test has <strong>2 tasks</strong>. You must complete both. <strong>Task 2 is worth twice as many marks</strong> as Task 1, so spend about 20 minutes on Task 1 and 40 minutes on Task 2. You are assessed on 4 criteria: <strong>Task Achievement/Response, Coherence & Cohesion, Lexical Resource, and Grammatical Range & Accuracy</strong> (each 25%).
+        </p>
+
+        <!-- TASK 1 -->
+        <div class="task-box">
+            <h4>📝 Task 1 (Minimum 150 words · ~20 minutes · 1/3 of marks)</h4>
+            <div class="meta">
+                <span>📘 Academic: Describe Visual Data</span>
+                <span>📗 General: Write a Letter</span>
+            </div>
+
+            <div class="compare-grid" style="margin-top:1rem;">
+                <div>
+                    <h5 style="color:var(--blue); margin-bottom:0.5rem;">Academic Task 1 Types:</h5>
+                    <ul style="color:var(--gray);">
+                        <li><strong>Line Graph</strong> – Describe trends over time (increase, decrease, fluctuation, plateau)</li>
+                        <li><strong>Bar Chart</strong> – Compare quantities across categories or time periods</li>
+                        <li><strong>Pie Chart</strong> – Describe proportions and percentages of a whole</li>
+                        <li><strong>Table</strong> – Summarize and compare numerical data in rows and columns</li>
+                        <li><strong>Process Diagram</strong> – Describe the stages of a natural or man-made process (e.g., how coffee is produced)</li>
+                        <li><strong>Map</strong> – Compare two maps of the same area at different times (e.g., a town in 1990 vs. 2020) and describe changes</li>
+                        <li><strong>Multiple Charts</strong> – Combine 2 different types (e.g., a pie chart + a table) and describe both with connections</li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 style="color:var(--green); margin-bottom:0.5rem;">General Training Task 1 Letter Types:</h5>
+                    <ul style="color:var(--gray);">
+                        <li><strong>Formal Letter</strong> – To someone you don't know (e.g., a manager, a company). Use "Dear Sir/Madam" and "Yours faithfully."</li>
+                        <li><strong>Semi-formal Letter</strong> – To someone you know but not closely (e.g., a landlord, a professor). Use "Dear Mr. Smith" and "Yours sincerely."</li>
+                        <li><strong>Informal Letter</strong> – To a friend or family member. Use "Dear John" and "Best regards / Warm wishes."</li>
+                        <li>Common purposes: <em>complaining, requesting information, applying for a job, apologizing, inviting, thanking, explaining a situation</em></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- TASK 2 -->
+        <div class="task-box">
+            <h4>📝 Task 2 – Essay (Minimum 250 words · ~40 minutes · 2/3 of marks)</h4>
+            <div class="meta">
+                <span>📘 Same for Academic & General</span>
+                <span>⚠️ Worth DOUBLE Task 1</span>
+            </div>
+            <p style="color:var(--gray); margin-bottom:1rem;">You must write a formal essay in response to a point of view, argument, or problem. There are <strong>5 main essay types</strong>:</p>
+
+            <div class="qtype-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                <div class="qtype-card purple-border">
+                    <h4><span class="num" style="background:var(--purple)">1</span> Opinion Essay (Agree / Disagree)</h4>
+                    <p><em>"To what extent do you agree or disagree?"</em></p>
+                    <p>You must clearly state your position and support it with reasons and examples throughout the essay. You can fully agree, fully disagree, or partially agree.</p>
+                </div>
+                <div class="qtype-card">
+                    <h4><span class="num">2</span> Discussion Essay (Discuss Both Views)</h4>
+                    <p><em>"Discuss both views and give your own opinion."</em></p>
+                    <p>You must discuss <strong>both sides</strong> of the argument fairly in separate body paragraphs, then clearly state your own opinion (usually in the conclusion or a separate paragraph).</p>
+                </div>
+                <div class="qtype-card green-border">
+                    <h4><span class="num" style="background:var(--green)">3</span> Problem & Solution Essay</h4>
+                    <p><em>"What are the causes of this problem and what solutions can you suggest?"</em></p>
+                    <p>Identify 2–3 causes/reasons for the problem, then propose 2–3 practical solutions. Each body paragraph should focus on either a cause or a solution.</p>
+                </div>
+                <div class="qtype-card orange-border">
+                    <h4><span class="num" style="background:var(--orange)">4</span> Advantages & Disadvantages Essay</h4>
+                    <p><em>"Do the advantages outweigh the disadvantages?"</em> or <em>"Discuss the advantages and disadvantages."</em></p>
+                    <p>Discuss the positive and negative aspects of a trend or development. If asked "outweigh," you must clearly state which side is stronger.</p>
+                </div>
+                <div class="qtype-card teal-border">
+                    <h4><span class="num" style="background:var(--teal)">5</span> Two-Part (Double) Question Essay</h4>
+                    <p><em>"Why is this happening? Is this a positive or negative development?"</em></p>
+                    <p>Two separate questions are asked. You <strong>must answer both</strong> fully. Dedicate one body paragraph to each question. Failing to address both = lower Task Response score.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== SPEAKING ==================== -->
+<section class="module-section" id="speaking">
+    <div class="container">
+        <div class="module-header">
+            <div class="big-icon">🗣️</div>
+            <div>
+                <h2>Module 4: Speaking</h2>
+                <span class="badge orange">11–14 min · 3 Parts · Face-to-Face Interview</span>
+            </div>
+        </div>
+        <p class="module-desc">
+            The Speaking test is a <strong>face-to-face interview</strong> with a certified IELTS examiner. It is the <strong>same for Academic and General Training</strong>. The test is recorded for quality control. You are assessed on 4 criteria (each 25%): <strong>Fluency & Coherence, Lexical Resource, Grammatical Range & Accuracy, and Pronunciation</strong>. The test may be taken on the same day as the other modules or up to 7 days before/after.
+        </p>
+
+        <div class="speak-timeline">
+            <!-- PART 1 -->
+            <div class="speak-part">
+                <h4>Part 1: Introduction & Interview</h4>
+                <div class="duration">⏱️ 4–5 minutes</div>
+                <p>The examiner introduces themselves and asks you to confirm your identity. Then they ask <strong>general questions about familiar topics</strong>. You should answer in <strong>2–3 sentences</strong> per question — not too short, not too long.</p>
+                <p style="margin-top:0.5rem;"><strong>Common Topics:</strong></p>
+                <ul>
+                    <li>🏠 Your home / hometown / accommodation</li>
+                    <li>💼 Work or studies</li>
+                    <li>🎵 Hobbies, music, sports, reading</li>
+                    <li>🍕 Food, cooking, restaurants</li>
+                    <li>🌤️ Weather, seasons</li>
+                    <li>🚗 Transport, daily routine</li>
+                    <li>👨‍👩‍👧 Family, friends</li>
+                    <li>🎨 Art, photography, colors</li>
+                    <li>🛍️ Shopping, fashion, gifts</li>
+                </ul>
+            </div>
+
+            <!-- PART 2 -->
+            <div class="speak-part">
+                <h4>Part 2: Long Turn (Cue Card)</h4>
+                <div class="duration">⏱️ 3–4 minutes (1 min preparation + 1–2 min speaking)</div>
+                <p>The examiner gives you a <strong>task card (cue card)</strong> with a topic and 3–4 bullet points to cover. You have <strong>1 minute to prepare</strong> (you can make notes on paper provided) and then must speak for <strong>1–2 minutes</strong> without interruption. The examiner may ask 1–2 brief follow-up questions at the end.</p>
+                <p style="margin-top:0.5rem;"><strong>Common Cue Card Topics:</strong></p>
+                <ul>
+                    <li>Describe a person you admire / a famous person / a family member</li>
+                    <li>Describe a place you visited / your dream holiday / a beautiful city</li>
+                    <li>Describe an object you own / a gift you received / something you lost</li>
+                    <li>Describe an event / a celebration / a memorable experience</li>
+                    <li>Describe a book / movie / song / website you enjoy</li>
+                    <li>Describe a skill you learned / a goal you achieved / a difficult decision</li>
+                </ul>
+                <div style="margin-top:0.8rem; padding:0.8rem 1rem; background:#fff3e0; border-radius:8px; font-size:0.9rem; color:#7a4600;">
+                    <strong>💡 Tip:</strong> Use the 1-minute preparation wisely. Write down <strong>keywords only</strong> (not full sentences). Structure your talk: Introduction → Point 1 → Point 2 → Point 3 → Conclusion/Feelings.
+                </div>
+            </div>
+
+            <!-- PART 3 -->
+            <div class="speak-part">
+                <h4>Part 3: Two-Way Discussion</h4>
+                <div class="duration">⏱️ 4–5 minutes</div>
+                <p>The examiner asks <strong>deeper, more abstract questions</strong> related to the topic from Part 2. This is the most challenging part. You should give <strong>extended answers</strong> (4–6 sentences) with reasons, examples, and comparisons. This part tests your ability to express and justify opinions, analyze, speculate, and discuss issues.</p>
+                <p style="margin-top:0.5rem;"><strong>Example (if Part 2 was about a holiday):</strong></p>
+                <ul>
+                    <li>"Why do you think tourism is important for a country's economy?"</li>
+                    <li>"How has travel changed compared to 50 years ago?"</li>
+                    <li>"Do you think international travel will become more or less popular in the future?"</li>
+                    <li>"What are the negative effects of mass tourism on local communities?"</li>
+                </ul>
+                <div style="margin-top:0.8rem; padding:0.8rem 1rem; background:#e8f5e9; border-radius:8px; font-size:0.9rem; color:#2e7d32;">
+                    <strong>💡 Tip:</strong> Use advanced structures: conditionals ("If governments invested more…"), comparisons ("Unlike in the past…"), hedging ("It could be argued that…"), and speculation ("I imagine that in the future…").
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== QUICK SUMMARY ==================== -->
+<section style="background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%); color: var(--white);">
+    <div class="container" style="text-align:center;">
+        <h2 style="font-size:2.2rem; margin-bottom:1rem;">Quick Summary: All Question Types at a Glance</h2>
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:1.5rem; text-align:left; margin-top:2rem;">
+            <div style="background:rgba(255,255,255,0.1); padding:1.5rem; border-radius:12px;">
+                <h4>🎧 Listening (6 types)</h4>
+                <ol style="font-size:0.92rem; opacity:0.9;">
+                    <li>Multiple Choice</li>
+                    <li>Matching</li>
+                    <li>Plan/Map/Diagram Labelling</li>
+                    <li>Form/Note/Table/Flow-chart/Summary Completion</li>
+                    <li>Sentence Completion</li>
+                    <li>Short Answer Questions</li>
+                </ol>
+            </div>
+            <div style="background:rgba(255,255,255,0.1); padding:1.5rem; border-radius:12px;">
+                <h4>📖 Reading (11 types)</h4>
+                <ol style="font-size:0.92rem; opacity:0.9;">
+                    <li>Multiple Choice</li>
+                    <li>True/False/Not Given</li>
+                    <li>Yes/No/Not Given</li>
+                    <li>Matching Information</li>
+                    <li>Matching Headings</li>
+                    <li>Matching Features</li>
+                    <li>Matching Sentence Endings</li>
+                    <li>Sentence Completion</li>
+                    <li>Summary/Note/Table/Flow-chart Completion</li>
+                    <li>Diagram Label Completion</li>
+                    <li>Short Answer Questions</li>
+                </ol>
+            </div>
+            <div style="background:rgba(255,255,255,0.1); padding:1.5rem; border-radius:12px;">
+                <h4>✍️ Writing (2 tasks)</h4>
+                <ol style="font-size:0.92rem; opacity:0.9;">
+                    <li>Task 1 Academic: Graph/Chart/Map/Process</li>
+                    <li>Task 1 General: Formal/Semi-formal/Informal Letter</li>
+                    <li>Task 2: Opinion Essay</li>
+                    <li>Task 2: Discussion Essay</li>
+                    <li>Task 2: Problem-Solution Essay</li>
+                    <li>Task 2: Advantages-Disadvantages Essay</li>
+                    <li>Task 2: Two-Part Question Essay</li>
+                </ol>
+            </div>
+            <div style="background:rgba(255,255,255,0.1); padding:1.5rem; border-radius:12px;">
+                <h4>🗣️ Speaking (3 parts)</h4>
+                <ol style="font-size:0.92rem; opacity:0.9;">
+                    <li>Part 1: Introduction & Interview (familiar topics)</li>
+                    <li>Part 2: Cue Card Long Turn (1–2 min speech)</li>
+                    <li>Part 3: Abstract Discussion (deep questions)</li>
+                </ol>
+                <p style="font-size:0.85rem; margin-top:0.5rem; opacity:0.7;">Assessed on: Fluency, Vocabulary, Grammar, Pronunciation</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="logo" style="color:#fff;">IELTS<span style="color:var(--orange);">Buddy</span></div>
+        <div class="footer-links" style="margin-top:1.5rem;">
+            <a href="#overview">Overview</a>
+            <a href="#listening">Listening</a>
+            <a href="#reading">Reading</a>
+            <a href="#writing">Writing</a>
+            <a href="#speaking">Speaking</a>
+        </div>
+        <p>&copy; 2026 IELTS Buddy. All rights reserved. | Your complete partner for IELTS success.</p>
+    </div>
+</footer>
+
+</body>
+</html>
